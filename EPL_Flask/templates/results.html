@@ -1,0 +1,23 @@
+<form action="/results" method="GET">
+  <label for="season">Season:</label><br>
+  <input type="text" id="season" name="season"><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<table>
+    <tr>
+        <th>Year</th>
+        <th>Team</th>
+        <th>Rank</th>
+        <th>Points</th>
+    </tr>
+    {% for result in results %}
+    <tr>
+        <td>{{ result.year }}</td>
+        <td>{{ result.team }}</td>
+        <td>{{ result.rank }}</td>
+        <td>{{ result.pts }}</td>
+    </tr>
+    {% endfor %}
+</table>
+``

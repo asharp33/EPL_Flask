@@ -1,0 +1,38 @@
+<form action="/results" method="GET">
+  <label for="criteria">Criteria:</label>
+  <select id="criteria" name="criteria">
+    <option value="year">Year</option>
+    <option value="rank">Rank</option>
+    <option value="team">Team</option>
+  </select>
+  <br>
+  <label for="value">Value:</label><br>
+  {% if criteria == "team" %}
+  <select id="value" name="value">
+    {% for team in teams %}
+    <option value="{{ team }}">{{ team }}</option>
+    {% endfor %}
+  </select>
+  {% else %}
+  <input type="text" id="value" name="value">
+  {% endif %}
+  <br>
+  <input type="submit" value="Submit">
+</form> 
+
+<table>
+    <tr>
+        <th>Year</th>
+        <th>Team</th>
+        <th>Rank</th>
+        <th>Points</th>
+    </tr>
+    {% for result in results %}
+    <tr>
+        <td>{{ result.year }}</td>
+        <td>{{ result.team }}</td>
+        <td>{{ result.rank }}</td>
+        <td>{{ result.pts }}</td>
+    </tr>
+    {% endfor %}
+</table>
